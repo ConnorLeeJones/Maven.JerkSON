@@ -61,15 +61,17 @@ public class GroceryReporter {
         for (Map.Entry<Double, Integer> entry : priceOccurances.entrySet()) {
 
             result.append(String.format("Price: \t %3.2f\t\t seen: %1d times\n", entry.getKey(), entry.getValue()));
-//            if (entry.getValue() == 2) {
-                result.append("-------------\t\t -------------\n");
-        }
+//            if (entry.getValue() != 1){
+//                result.append("s");
+//            }
 
+            if (entry.getKey().equals(prices.get(0))) {
+                result.append("-------------\t\t -------------\n");
+            }
+        }
         result.append("\n");
 
-
-
-        return result.toString();
+            return result.toString();
     }
 
 
