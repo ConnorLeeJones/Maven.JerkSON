@@ -60,10 +60,12 @@ public class GroceryReporter {
         Integer count;
         for (Map.Entry<Double, Integer> entry : priceOccurances.entrySet()) {
 
-            result.append(String.format("Price: \t %3.2f\t\t seen: %1d times\n", entry.getKey(), entry.getValue()));
-//            if (entry.getValue() != 1){
-//                result.append("s");
-//            }
+            result.append(String.format("Price: \t %3.2f\t\t seen: %1d time", entry.getKey(), entry.getValue()));
+            if (entry.getValue() != 1){
+                result.append("s\n");
+            } else {
+                result.append("\n");
+            }
 
             if (entry.getKey().equals(prices.get(0))) {
                 result.append("-------------\t\t -------------\n");
@@ -98,6 +100,7 @@ public class GroceryReporter {
 
         String errs = String.format("Errors         \t \t seen: %1d times", + errors);
         result.append(errs);
+        result.append("\n");
 
         return result.toString();
     }
